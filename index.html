@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Fondo Spline</title>
+    <style>
+      body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      #spline-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+      }
+
+      .content {
+        position: relative;
+        z-index: 1;
+        color: white;
+        text-align: center;
+        padding-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Fondo Spline -->
+    <div id="spline-background"></div>
+
+    <div class="content">
+      <h1>Tu contenido aquí</h1>
+      <p>Este texto va encima del fondo de Spline.</p>
+    </div>
+
+    <script type="module">
+      import { Application } from './draco_wasm_wrapper.js';
+      const app = new Application(document.getElementById('spline-background'));
+      app.load('./scene.splinecode');
+    </script>
+  </body>
+</html>
